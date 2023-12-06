@@ -1,0 +1,22 @@
+<nb-card size="large">
+  <nb-tabset fullWidth (changeTab)="changeTab($event)">
+    <nb-tab tabTitle="Orders">
+      <div class="chart-container">
+        <ngx-chart-panel-summary-daily [summary]="chartPanelSummary"></ngx-chart-panel-summary-daily>
+        <ngx-chart-panel-header-daily [type]="period"
+                                (periodChange)="setPeriodAndGetChartData($event)">
+        </ngx-chart-panel-header-daily>
+        <ngx-orders-chart-daily #ordersChart [ordersChartData]="ordersChartData"></ngx-orders-chart-daily>
+      </div>
+    </nb-tab>
+    <nb-tab tabTitle="Profit" [lazyLoad]="true">
+      <div class="chart-container">
+        <ngx-chart-panel-summary-daily [summary]="chartPanelSummary"></ngx-chart-panel-summary-daily>
+        <ngx-chart-panel-header-daily [type]="period"
+                                (periodChange)="setPeriodAndGetChartData($event)">
+        </ngx-chart-panel-header-daily>
+        <ngx-profit-chart-daily #profitChart [profitChartData]="profitChartData"></ngx-profit-chart-daily>
+      </div>
+    </nb-tab>
+  </nb-tabset>
+</nb-card>
